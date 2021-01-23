@@ -175,14 +175,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim); // PRZERWANIA OD TI
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	//uint16_t i;
-//	uint8_t kilometry = 51;
-//	uint8_t czas = 54;
-		
-	//wtext[7] = czas;
-	//wtext[27] = kilometry;
-	// TO ZAPISUJE CHARY, TZN ZGODNIE Z TABLICA ASCII, COS TRZEBA Z RZUTOWANIEM POKOMBINOWAC, ALBO ZROBIC FUNKCJE CO
-	// BEDZIE ZMIENIAC Z UINT NA CHARY...
+
 	
 	
   /* USER CODE END 1 */
@@ -231,21 +224,6 @@ ssd1331_init();
 									else
 									{
 										flaga_temp = 3;
-//										//Przeniesc to na dole w funkcje, ktora bedzie w for np i w zaleznosci od arg nazywala plik.txt, np 10 treningow mozna zapisac.
-//										if(f_open(&MyFile,"testP.txt",FA_CREATE_ALWAYS|FA_WRITE)!=FR_OK)
-//										{
-//											Error_Handler();
-//										}
-//										else
-//										{
-//											res=f_write(&MyFile,wtext,sizeof(wtext),(void*)&byteswritten);
-//											if((byteswritten==0)||(res!=FR_OK))
-//											{
-//												Error_Handler();
-//											}
-//											f_close(&MyFile);
-//										}
-									}
 									
 //===================== G P S ===================================#
 			gps_handle = gps_init(&huart1);
@@ -657,7 +635,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)           // Funkcja obslugujaca
 //									{
 									// PRZYGOTOWYWANIE DANYCH DO ZAPISU NA KARTE
 											konwert_liczb(czas_s, &liczba_jed, &liczba_dzies, &liczba_setek); //SEKUNDY
-											wtext[5] = liczba_dzies; 
+							 				wtext[5] = liczba_dzies; 
 											wtext[6] = liczba_jed;
 											konwert_liczb(czas_min, &liczba_jed, &liczba_dzies, &liczba_setek); //MINUTY
 											wtext[15] = liczba_dzies; 
